@@ -1,0 +1,12 @@
+﻿body {
+    background-image: url("/carl1.jpg");
+    background-size: cover;
+}
+
+h1{
+    color:white;
+}
+
+label{
+    color:white;
+}

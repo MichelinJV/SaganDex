@@ -1,0 +1,21 @@
+﻿body {
+    background-image: url("/cosmos11.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+h1{
+    color:white;
+}
+
+td, th {
+    color: lightyellow;
+    font-size: 20px;
+}
+
+.card-body{
+    background-color: black;
+}
+        
+        

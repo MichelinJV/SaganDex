@@ -1,0 +1,15 @@
+﻿body {
+    background-image: url("/sagan1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: lightyellow;
+    font-size: 20px;
+}

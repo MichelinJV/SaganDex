@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SaganDex.Entidades.ExoPlanetas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" type="text/css" href="~/css/planetas.css" />
+
+<body>
+    <h1>Planetas Extra-Solares</h1>
+
+    <div class="card">
+        <div class="card-header">Pesquisar</div>
+        <div class="card-body">
+            <form action="/ExoPlanetas/Index" method="get">
+                <div class="row">
+                    <div class="col-2">
+                        <a href="/ExoPlanetas/Create" class="btn btn-success">
+                            Novo Planeta
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <select name="TipoPesquisa2" class="form-control">
+                            <option value="Todos">Todos</option>
+                            <option value="PorNome">Nome</option>
+                            <option value="PorConstelacao">Constelação</option>
+                            <option value="PorEstrelaMae">Estrela-Mãe</option>
+                            <option value="PorCategoria">Categoria</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="query2" class="form-control" placeholder="Digite sua busca" />
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="submit">Pesquisar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Constelacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstrelaMae)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Distancia)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Constelacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EstrelaMae)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Distancia)
+                    </td>
+                    <td>
+                        <a href="ExoPlanetas/Edit/@item.Id" class="btn btn-warning">Editar</a>
+                        <a href="ExoPlanetas/Delete/@item.Id" class="btn btn-danger">Excluir</a>
+                        <!-- @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+     -->
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>

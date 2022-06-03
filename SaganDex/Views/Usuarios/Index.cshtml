@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SaganDex.Entidades.Usuarios>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" type="text/css" href="~/css/usuario.css" />
+
+<body>
+    <h1>Lista de Usuários</h1>
+
+    <div class="card">
+        <div class="card-header">Pesquisar</div>
+        <div class="card-body">
+            <form action="/Usuarios/Index" method="get">
+                <div class="row">
+                    <div class="col-2">
+                        <a href="/Usuarios/Create" class="btn btn-success">
+                            Novo Usuário
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <select name="TipoPesquisa" class="form-control">
+                            <option value="Todos">Todos</option>
+                            <option value="PorNome">Por Nome</option>                           
+                            <option value="PorLogin">Por Login</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" name="query" class="form-control" placeholder="Digite sua busca" />
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="submit">Pesquisar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WhatsApp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Login)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WhatsApp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Login)
+                    </td>
+
+                    <td>
+                        <a href="Usuarios/Edit/@item.Id" class="btn btn-warning">Editar</a>
+                        <a href="Usuarios/Delete/@item.Id" class="btn btn-danger">Excluir</a>
+                        <!--@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                         -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
